@@ -38,7 +38,7 @@ export default class ListTask extends Component {
             id
         }}).then(res => {
             const position = this.props.tasks.findIndex(x => x.id === id);
-            this.props.action(position)
+            this.props.actionRemove(position)
             toast({message: "Successfully removed", type: "is-warning"})
         }).catch(err =>{
             toast({message: "Error removing", type: "is-danger"})

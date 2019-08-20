@@ -115,7 +115,7 @@ export default class TodoList extends Component {
                 </div>
                 
                 {this.state.loaded ? (
-                    <ListTask tasks={this.state.tasks} action={this.removeTask} actionUpdate={this.updateTask}></ListTask>
+                    <ListTask tasks={this.state.tasks} actionRemove={this.removeTask} actionUpdate={this.updateTask}></ListTask>
                 ) : (
                     <img src="https://avatars2.githubusercontent.com/u/39895671?s=400&v=4" alt="logo" className="logo loading"/>
                 ) 
