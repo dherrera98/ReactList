@@ -2,4 +2,4 @@
 
 https://todo-list.dherrera98.now.sh/
 
-> IS PWA!!!!
+> PWA!!!!
