@@ -15,7 +15,8 @@ export default class TodoList extends Component {
 
         this.state = {
             tasks: [],
-            tarea: ""
+            tarea: "",
+            loaded: false
         }
     }
 
@@ -71,6 +72,9 @@ export default class TodoList extends Component {
                 createTo
             }
           }`}).then(result=>{
+            this.setState({
+                loaded: true
+            })
             if(this.state.tasks.length !== result.data.tasks.length){
                 this.setState({tasks: []})
                 this.setState({tasks: this.state.tasks.concat(result.data.tasks)})
@@ -110,7 +114,13 @@ export default class TodoList extends Component {
                     <a className="button is-link" onClick={this.addTask}>Add</a>
                 </div>
                 
-                <ListTask tasks={this.state.tasks} action={this.removeTask} actionUpdate={this.updateTask}></ListTask>
+                {this.state.loaded ? (
+                    <ListTask tasks={this.state.tasks} action={this.removeTask} actionUpdate={this.updateTask}></ListTask>
+                ) : (
+                    <img src="https://avatars2.githubusercontent.com/u/39895671?s=400&v=4" alt="logo" className="logo loading"/>
+                ) 
+            
+            }
             </div>
         )
     }

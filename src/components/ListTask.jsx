@@ -94,6 +94,12 @@ export default class ListTask extends Component {
         
     }
 
+    getFullDate = (dateTask) => {
+        let date = new Date(dateTask)
+        let dateFormat = date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear() + "  -  " + date.getHours() + ":" + date.getMinutes();
+        return dateFormat
+    }
+
     render() {
         return (
           <div className="panel list-group columns list-container">
@@ -114,7 +120,7 @@ export default class ListTask extends Component {
                             <button className="button is-danger is-outlined is-small" onClick={() => {this.remove(task.id)}}>Remove</button>
                         </div>
 
-                        <span className="date">{task.createTo}</span>
+                        <span className="date">{this.getFullDate(task.createTo)}</span>
 
                     </a>
               ))}

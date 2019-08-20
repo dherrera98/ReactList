@@ -50,7 +50,10 @@ button{
 .logo{
     animation: rotate 12s infinite linear;
 }
-
+.loading{
+    width: 50px;
+    animation: rotate 5s infinite;
+}
 @keyframes fade {
     from{
         opacity: 0;
