@@ -109,15 +109,23 @@ export default class TodoList extends Component {
                 <div className="columns h1-container">
                     <h1>TodoList</h1>
                 </div>
-                <div className="columns newtask">
-                    <input className="input" type="text" placeholder="Introduce taréa" onKeyDown={this.addTask} id="inputNewTarea" onChange={(elem)=>{this.setState({tarea: elem.target.value})}}/>
-                    <a className="button is-link" onClick={this.addTask}>Add</a>
-                </div>
                 
                 {this.state.loaded ? (
-                    <ListTask tasks={this.state.tasks} actionRemove={this.removeTask} actionUpdate={this.updateTask}></ListTask>
+                    <>
+                        <div className="columns newtask">
+                            <input className="input" type="text" placeholder="Introduce taréa" onKeyDown={this.addTask} id="inputNewTarea" onChange={(elem)=>{this.setState({tarea: elem.target.value})}}/>
+                            <a className="button is-link" onClick={this.addTask}>Add</a>
+                        </div>
+                        <ListTask tasks={this.state.tasks} actionRemove={this.removeTask} actionUpdate={this.updateTask}></ListTask>
+                    </>
                 ) : (
-                    <img src="https://avatars2.githubusercontent.com/u/39895671?s=400&v=4" alt="logo" className="logo loading"/>
+                    <>                    
+                        <div className="columns newtask">
+                            <input className="input" type="text" placeholder="Introduce taréa" id="inputNewTarea" disabled/>
+                            <a className="button is-link" disabled>Add</a>
+                        </div>                        
+                        <img src="https://avatars2.githubusercontent.com/u/39895671?s=400&v=4" alt="logo" className="logo loading"/>
+                    </>
                 ) 
             
             }

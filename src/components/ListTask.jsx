@@ -108,7 +108,6 @@ export default class ListTask extends Component {
                         <span className={task.completed ? "completed" : ""}>
                             {task.name} 
                         </span>
-
                         <div>
                             {
                                 task.completed ?  
@@ -119,7 +118,6 @@ export default class ListTask extends Component {
 
                             <button className="button is-danger is-outlined is-small" onClick={() => {this.remove(task.id)}}>Remove</button>
                         </div>
-
                         <span className="date">{this.getFullDate(task.createTo)}</span>
 
                     </a>
